@@ -2,21 +2,27 @@
 
 ClapTrap::ClapTrap(): name("default"), hp(10), energy(10), damage(0)
 {
-	cout(name << ": ""Constructor called");
+	cout("ClapTrap " << name << ": ""Constructor called");
 }
 
-ClapTrap::ClapTrap(std::string _name): name(_name), hp(10), energy(10), damage(0)
+ClapTrap::ClapTrap(const ClapTrap& copy)
 {
-	cout(name << ": ""Constructor called");
+	*this = copy;
+	cout("ClapTrap " << name << " Copy constructor called");
+}
+
+ClapTrap::ClapTrap(const std::string& _name): name(_name), hp(10), energy(10), damage(0)
+{
+	cout("ClapTrap " << name << ": ""Constructor called");
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& copy)
 {
-	this->name = copy.name;
-	this->hp = copy.hp;
-	this->energy = copy.energy;
-	this->damage = copy.damage;
-	cout(name << ": ""Assignation operator called");
+	name = copy.name;
+	hp = copy.hp;
+	energy = copy.energy;
+	damage = copy.damage;
+	cout("ClapTrap " << name << ": ""Assignation operator called");
 
 	return *this;
 }
@@ -52,5 +58,5 @@ void ClapTrap::beRepaired(unsigned int amount)
 
 ClapTrap::~ClapTrap()
 {
-	cout(name << ": ""Destructor called");
+	cout("ClapTrap " << name << ": ""Destructor called");
 }
