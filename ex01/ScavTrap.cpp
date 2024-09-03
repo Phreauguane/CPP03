@@ -10,9 +10,9 @@ ScavTrap::ScavTrap(): ClapTrap()
 	cout("ScavTrap " << name << ": ""Constructor called");
 }
 
-ScavTrap::ScavTrap(const ScavTrap& copy)
+ScavTrap::ScavTrap(const ScavTrap& copy): ClapTrap(copy)
 {
-	*this = copy;
+	gate = copy.gate;
 	cout("ScavTrap " << name << ": ""Copy constructor called");
 }
 
@@ -35,4 +35,26 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& copy)
 	cout("ScavTrap " << name << ": ""Assignation operator called");
 
 	return *this;
+}
+
+void ScavTrap::attack(const std::string& target)
+{
+	energy--;
+	cout("ScavTrap " << name << " attacks " << target << ", causing " << damage << " points of damage!");
+}
+
+void ScavTrap::guardGate()
+{
+	if (gate)
+	{
+		cout("ScavTrap " << name << " is already in Gate keeper mode");
+		return ;
+	}
+	gate = true;
+	cout("ScavTrap " << name << " is now in Gate keeper mode");
+}
+
+ScavTrap::~ScavTrap()
+{
+	cout("ScavTrap " << name << ": ""Destructor called");
 }

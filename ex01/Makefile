@@ -1,9 +1,10 @@
-NAME	=	claptrap
+NAME	=	scavtrap
 
 CPP		=	c++ -Wall -Wextra -Werror -std=c++98
 
 SRC		=	main.cpp	\
-			ClapTrap.cpp
+			ClapTrap.cpp \
+			ScavTrap.cpp
 
 all		:
 	$(CPP) $(SRC) -o $(NAME)
