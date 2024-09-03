@@ -1,12 +1,14 @@
 #pragma once
 
-#include "ScavTrap.h"
+#include "ClapTrap.h"
 
-class FragTrap : public ScavTrap
+class FragTrap : public ClapTrap
 {
+public:
 	FragTrap();
 	FragTrap(const FragTrap&);
 	FragTrap(const std::string&);
+	FragTrap& operator=(const FragTrap&);
 
 	void highFivesGuys();
 
